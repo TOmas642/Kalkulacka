@@ -1,2 +1,0 @@
-# Kalkulacka
-Created with CodeSandbox
