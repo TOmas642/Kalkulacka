@@ -36,6 +36,12 @@ const performCalculation = {
   "/": (firstOperand, secondOperand) => firstOperand / secondOperand,
   "=": (firstOperand, secondOperand) => secondOperand
 };
+function resetCalculator() {
+  calculator.displayValue = "0";
+  calculator.firstOperand = null;
+  calculator.waitingForSecondOperand = false;
+  calculator.operator = null;
+}
 const keys = document.querySelector(".calculator-keys");
 keys.addEventListener("click", event => {
   const { target } = event;
@@ -54,10 +60,7 @@ keys.addEventListener("click", event => {
     return;
   }
   if (target.classList.contains("all-clear")) {
-    calculator.displayValue = "0";
-    calculator.firstOperand = null;
-    calculator.waitingForSecondOperand = false;
-    calculator.operator = null;
+    resetCalculator();
     updateDisplay();
     return;
   }
